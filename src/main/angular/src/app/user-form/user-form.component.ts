@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../user-service/user-service.service';
-import { User } from '../user-model/user';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../user-service/user-service.service';
+import {User} from '../user-model/user';
 
 @Component({
   selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  templateUrl: 'user-form.component.html',
+  styleUrls: ['user-form.component.scss']
 })
 export class UserFormComponent {
 
@@ -26,4 +26,7 @@ export class UserFormComponent {
   gotoUserList() {
     this.router.navigate(['/users']);
   }
+
+  role = ['ROLE_USER', 'ROLE_ADMIN']
 }
+

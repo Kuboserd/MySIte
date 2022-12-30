@@ -14,6 +14,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests().antMatchers("/").permitAll();
+
+
+    }/*
     private final UserDetailsService userDetailsService;
 
     public SecurityConfig(@Qualifier("customUserDetailsService") UserDetailsService userDetailsService) {
@@ -38,12 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(userDetailsService);*/
 
     //in memory authentication
 /*        auth.inMemoryAuthentication()
                 .withUser("user1").password("$2a$10$SRoBPNWBU2mQu8vtEdLb.u3nvyh4lAK9k6ZpSPpY7oUpfpBDk0hyu").roles("USER")
                 .and()
                 .withUser("admin").password("$2a$10$GTCgwZbd5uBeJnnxtevfC.oaTwMDa.Xcfkqo52y9CUGa6Fi.J5bLm").roles("ADMIN");*/
-    }
 }
+

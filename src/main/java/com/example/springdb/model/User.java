@@ -13,42 +13,34 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(nullable = false)
-    @Setter
-    private String firstName;
-
-    @Column(nullable = false)
-    @Setter
-    private String lastName;
 
     @Column(nullable = false, unique = true)
     @Setter
     private String login;
 
+    @Column(nullable = false, unique = true)
+    @Setter
+    private String email;
+
     @Setter
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Setter
     private Roles role;
 
     public enum Roles{
         ROLE_USER, ROLE_ADMIN
     }
 
-    public User(String firstName, String lastName, String login, String password, Roles role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public User(Long id, String login, String email, String password, Roles role) {
+        this.id = id;
         this.login = login;
+        this.email = email;
         this.password = password;
         this.role = role;
     }
-
-    public static void main(String[] args) {
-
-    }
-
-
 }

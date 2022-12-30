@@ -9,12 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    List<User> findAllByFirstName(String lastName);
-
-    List<User> findAllByFirstNameAndLastName(String firstName, String lastName);
-
-    List<User> findAllByFirstNameLike(String likePattern);
-
     @Query("from User u where u.password=:password")
     List<User> findByPassword(@Param("password") String password);
 

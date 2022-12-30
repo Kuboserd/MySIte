@@ -14,8 +14,10 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+/*
 
     private final BCryptPasswordEncoder encoder;
+*/
 
     public List<User> findAll() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false).toList();
@@ -25,8 +27,9 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User with id " + id + " not found"));
     }
 
-    public User save(User user) {
-        user.setPassword(encoder.encode(user.getPassword()));
+    public User save(User user) {/*
+        user.setPassword(encoder.encode(user.getPassword()));*/
+        user.setPassword(user.getPassword());
         return userRepository.save(user);
     }
 
@@ -36,25 +39,21 @@ public class UserService {
 
     public User update(User user) {
         User currentUser = findById(user.getId());
-        if (user.getFirstName() == null) {
-            user.setFirstName(currentUser.getFirstName());
-        }
-        if (user.getLastName() == null) {
-            user.setLastName(currentUser.getLastName());
-        }
         if (user.getLogin() == null) {
             user.setLogin(currentUser.getLogin());
         }
+        if (user.getEmail() == null) {
+            user.setEmail(currentUser.getEmail());
+        }
         if (user.getPassword() == null) {
             user.setPassword(currentUser.getPassword());
-        }else {
+        }/*else {
             user.setPassword(encoder.encode(user.getPassword()));
+        }*/
+        if (user.getRole() == null) {
+            user.setRole(currentUser.getRole());
         }
 
         return userRepository.save(user);
-    }
-
-    public List<User> findByFirstNameAndLastName(String firstName, String lastName) {
-        return userRepository.findAllByFirstNameAndLastName(firstName, lastName);
     }
 }
