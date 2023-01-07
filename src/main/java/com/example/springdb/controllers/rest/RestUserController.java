@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequiredArgsConstructor
 public class RestUserController {
     private final UserService userService;
@@ -25,6 +25,7 @@ public class RestUserController {
     }
 
     @PostMapping("/users")
+    @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody User user) {
         return userService.save(user);
     }

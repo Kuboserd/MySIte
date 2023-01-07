@@ -10,6 +10,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 
@@ -17,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests().antMatchers("/").permitAll();
+        httpSecurity.csrf().disable();
 
 
     }/*
@@ -51,5 +57,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("user1").password("$2a$10$SRoBPNWBU2mQu8vtEdLb.u3nvyh4lAK9k6ZpSPpY7oUpfpBDk0hyu").roles("USER")
                 .and()
                 .withUser("admin").password("$2a$10$GTCgwZbd5uBeJnnxtevfC.oaTwMDa.Xcfkqo52y9CUGa6Fi.J5bLm").roles("ADMIN");*/
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200/"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }
 
