@@ -39,6 +39,4 @@ public class RestUserController {
     @PutMapping("/{id}")
     public User update(@RequestBody User user) {return userService.update(user); }
 
-
-
 }

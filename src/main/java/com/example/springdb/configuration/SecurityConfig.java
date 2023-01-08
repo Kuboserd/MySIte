@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -18,14 +20,30 @@ import java.util.Arrays;
 
 @Configuration
 
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().antMatchers("/").permitAll();
-        httpSecurity.csrf().disable();
+public class SecurityConfig {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()
+                .antMatchers(HttpMethod.DELETE).hasAuthority(User.Roles.ROLE_ADMIN.name())
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .logout();/*
+        httpSecurity.authorizeRequests()
+                .antMatchers("/")
+                .permitAll();*/
+        httpSecurity.csrf().disable();/*
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());*/
+        return httpSecurity.build();
+    }
 
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
-    }/*
+    /*
     private final UserDetailsService userDetailsService;
 
     public SecurityConfig(@Qualifier("customUserDetailsService") UserDetailsService userDetailsService) {
@@ -43,30 +61,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout();
     }
 
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);*/
 
-    //in memory authentication
-/*        auth.inMemoryAuthentication()
-                .withUser("user1").password("$2a$10$SRoBPNWBU2mQu8vtEdLb.u3nvyh4lAK9k6ZpSPpY7oUpfpBDk0hyu").roles("USER")
-                .and()
-                .withUser("admin").password("$2a$10$GTCgwZbd5uBeJnnxtevfC.oaTwMDa.Xcfkqo52y9CUGa6Fi.J5bLm").roles("ADMIN");*/
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200/"));
-        configuration.setAllowedMethods(Arrays.asList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
+
 }
 
