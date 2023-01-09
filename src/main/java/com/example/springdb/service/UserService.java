@@ -5,7 +5,6 @@ import com.example.springdb.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.stream.StreamSupport;
@@ -25,8 +24,12 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User with id " + id + " not found"));
     }
 
-    public User findByLogin(String login){
-        return userRepository.findByLoginNative(login).orElseThrow(()->new RuntimeException("User with login " + login + " not found"));
+    public User findByLogin(String login) {
+        return userRepository.findByLoginNative(login).orElse(new User());
+    }
+
+    public User findByPassword(String password) {
+        return userRepository.findByPasswordNative(encoder.encode(password)).orElse(new User());
     }
 
     public User save(User user) {
@@ -48,7 +51,7 @@ public class UserService {
         }
         if (user.getPassword() == null) {
             user.setPassword(currentUser.getPassword());
-        }else {
+        } else {
             user.setPassword(encoder.encode(user.getPassword()));
         }
         if (user.getRole() == null) {

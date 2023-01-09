@@ -24,11 +24,6 @@ public class RestUserController {
         return userService.findById(id);
     }
 
-    @GetMapping(path = "/{login}")
-    public User getByLogin(@PathVariable("login") String login) {
-        return userService.findByLogin(login);
-    }
-
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody User user) {

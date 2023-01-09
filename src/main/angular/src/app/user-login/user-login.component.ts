@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {User} from "../user-model/user";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../user-service/user-service.service";
+import {LoginServiceService} from "./login-service/login-service.service";
+
 
 @Component({
   selector: 'app-user-login',
@@ -15,18 +16,25 @@ export class UserLoginComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService) {
+    private loginService: LoginServiceService) {
     this.user = new User();
   }
 
+  ngOnInit() {
+    sessionStorage.setItem('token', '');
+  }
+
   onSubmit() {
-    this.userService.save(this.user).subscribe(result => this.gotoUserList());
+    (this.loginService.login(this.user)).subscribe(isValid => {
+      if (isValid) {
+        sessionStorage.setItem(
+          'token',
+          window.btoa(this.user.login + ':' + this.user.password)
+        );
+        this.router.navigate(['']);
+      } else {
+        alert("Authentication failed.")
+      }
+    });
   }
-
-  // TODO: dodac strone glowna uzytkownika
-  gotoUserList() {
-    this.router.navigate(['/panel']);
-  }
-
-  role = ['ROLE_USER', 'ROLE_ADMIN']
 }

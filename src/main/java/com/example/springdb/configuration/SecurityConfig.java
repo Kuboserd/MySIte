@@ -24,13 +24,13 @@ import java.util.Arrays;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf()
-                .disable()
+       httpSecurity.csrf()
+                .disable();/*
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
                 .and()
-                .httpBasic();
+                .httpBasic();*/
         return httpSecurity.build();
     }
 
