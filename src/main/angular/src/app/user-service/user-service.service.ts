@@ -17,9 +17,11 @@ export class UserService {
   }
 
   public save(user: User) {
-    const headers = new HttpHeaders;
-    headers.set('Access-Control-Allow-Origin', '*');
-    return this.http.post<User>(this.usersUrl, user, {headers: headers});
+    return this.http.post<User>(this.usersUrl, user);
+  }
+
+  public login(user:User){
+
   }
 
 }
