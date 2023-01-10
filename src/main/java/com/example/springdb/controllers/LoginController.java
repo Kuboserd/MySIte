@@ -1,4 +1,4 @@
-package com.example.springdb.controllers.rest;
+package com.example.springdb.controllers;
 
 import com.example.springdb.model.User;
 import com.example.springdb.service.UserService;
