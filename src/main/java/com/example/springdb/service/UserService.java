@@ -5,7 +5,6 @@ import com.example.springdb.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.stream.StreamSupport;
@@ -14,10 +13,8 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-/*
 
     private final BCryptPasswordEncoder encoder;
-*/
 
     public List<User> findAll() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false).toList();
@@ -27,9 +24,16 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User with id " + id + " not found"));
     }
 
-    public User save(User user) {/*
-        user.setPassword(encoder.encode(user.getPassword()));*/
-        user.setPassword(user.getPassword());
+    public User findByLogin(String login) {
+        return userRepository.findByLoginNative(login).orElse(new User());
+    }
+
+    public User findByPassword(String password) {
+        return userRepository.findByPasswordNative(encoder.encode(password)).orElse(new User());
+    }
+
+    public User addUser(User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -47,9 +51,9 @@ public class UserService {
         }
         if (user.getPassword() == null) {
             user.setPassword(currentUser.getPassword());
-        }/*else {
+        } else {
             user.setPassword(encoder.encode(user.getPassword()));
-        }*/
+        }
         if (user.getRole() == null) {
             user.setRole(currentUser.getRole());
         }

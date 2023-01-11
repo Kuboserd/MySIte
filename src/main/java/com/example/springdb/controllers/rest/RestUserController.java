@@ -27,7 +27,7 @@ public class RestUserController {
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody User user) {
-        return userService.save(user);
+        return userService.addUser(user);
     }
 
     @DeleteMapping("/{id}")
@@ -37,8 +37,8 @@ public class RestUserController {
     }
 
     @PutMapping("/{id}")
-    public User update(@RequestBody User user) {return userService.update(user); }
-
-
+    public User update(@RequestBody User user) {
+        return userService.update(user);
+    }
 
 }

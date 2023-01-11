@@ -32,16 +32,6 @@
                required #password="ngModel">
         <div [hidden]="!password.pristine" class="alert alert-danger">Password is required</div>
       </div>
-      <div class="form-group">
-        <label for="role">Role</label>
-        <select [(ngModel)]="user.role"
-                class="form-control"
-                id="role"
-                name="role"
-                required>
-                <option *ngFor="let r of role" [value]="r">{{r}}</option>
-        </select>
-      </div>
       <button type="submit" [disabled]="!userForm.form.valid"
               class="btn btn-info">Submit</button>
     </form>

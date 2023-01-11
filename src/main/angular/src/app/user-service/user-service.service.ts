@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../user-model/user';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {User} from '../user-model/user';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class UserService {
@@ -17,9 +17,7 @@ export class UserService {
   }
 
   public save(user: User) {
-    const headers = new HttpHeaders;
-    headers.set('Access-Control-Allow-Origin', '*');
-    return this.http.post<User>(this.usersUrl, user, {headers: headers});
+    return this.http.post<User>(this.usersUrl, user);
   }
 
 }
