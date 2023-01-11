@@ -1,3 +1,6 @@
+<div class="header">
+  <a>Please Login, to use tools</a>
+</div>
 <div class="card my-5">
   <div class="card-body">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
@@ -32,5 +35,15 @@
         </button>
       </div>
     </form>
+  </div>
+</div>
+<div class="card my-5">
+  <div>Don't have an account yet? Create it now!</div>
+  <div>
+
+    <button  [routerLink]="['/registration']"
+             type="register"
+             class="btn btn-info">Register
+    </button>
   </div>
 </div>

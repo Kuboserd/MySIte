@@ -4,6 +4,7 @@ import com.example.springdb.model.place.World;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.List;
@@ -36,14 +37,17 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    @ColumnDefault("'ROLE_USER'")
     @Setter
     private Roles role;
 
-    public enum Roles{
+    public enum Roles {
         ROLE_USER, ROLE_ADMIN
     }
 
-    public User(){}
+    public User() {
+    }
 
     public User(Long id, String login, String email, String password, Roles role) {
         this.id = id;

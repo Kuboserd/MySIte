@@ -32,7 +32,7 @@ public class UserService {
         return userRepository.findByPasswordNative(encoder.encode(password)).orElse(new User());
     }
 
-    public User save(User user) {
+    public User addUser(User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         return userRepository.save(user);
     }

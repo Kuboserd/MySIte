@@ -9,6 +9,9 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './user-service/user-service.service';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { WorldsComponent } from './home/worlds/worlds.component';
+import { CharactersComponent } from './home/characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HomeComponent } from './home/home.component';
     UserListComponent,
     UserFormComponent,
     UserLoginComponent,
-    HomeComponent
+    HomeComponent,
+    UserRegistrationComponent,
+    WorldsComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,

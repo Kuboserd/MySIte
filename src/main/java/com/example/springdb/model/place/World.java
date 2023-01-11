@@ -2,6 +2,7 @@ package com.example.springdb.model.place;
 
 
 import com.example.springdb.model.User;
+import lombok.Getter;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ public class World extends Place {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Getter
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

@@ -31,10 +31,11 @@ export class UserLoginComponent {
           'token',
           window.btoa(this.user.login + ':' + this.user.password)
         );
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
       } else {
         alert("Authentication failed.")
       }
     });
   }
+
 }

@@ -12,7 +12,18 @@
               <a routerLink="/adduser" class="btn btn-info">Add User</a>
             </li>
             <li class="list-inline-item">
-              <a routerLink="/login" class="btn btn-info">Login</a>
+              <div>
+                <button (submit)="logged()" type="submit"
+                        [hidden]="!logged()"
+                        [routerLink]="['/login']"
+                        class="btn btn-info">D&D Tools</button>
+              </div>
+              <div>
+                <button (submit)="logged()" type="submit"
+                        [hidden]="logged()"
+                        [routerLink]="['/home']"
+                        class="btn btn-info">D&D Tools</button>
+              </div>
             </li>
           </ul>
         </div>

@@ -27,7 +27,7 @@ public class RestUserController {
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody User user) {
-        return userService.save(user);
+        return userService.addUser(user);
     }
 
     @DeleteMapping("/{id}")
