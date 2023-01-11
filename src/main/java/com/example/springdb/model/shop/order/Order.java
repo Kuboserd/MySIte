@@ -1,6 +1,7 @@
 package com.example.springdb.model.shop.order;
 
 import com.example.springdb.model.Hero;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,6 +19,7 @@ public class Order {
     )
     private List<OrderQuantity> orderQuantityList;
 
+    @JsonIgnoreProperties("order")
     @OneToOne
     @JoinColumn(name = "hero_id")
     private Hero hero;

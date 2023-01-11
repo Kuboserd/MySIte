@@ -1,6 +1,8 @@
 package com.example.springdb.model;
 
 import com.example.springdb.model.place.World;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,9 +24,11 @@ public class User {
     @Setter
     private String login;
 
+    @JsonIgnoreProperties("user")
     @OneToMany(mappedBy = "user")
     private List<Hero> heroList;
 
+    @JsonIgnoreProperties("user")
     @OneToMany(mappedBy = "user")
     private List<World> worldList;
 

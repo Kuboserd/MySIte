@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {World} from "./world";
 
@@ -15,7 +15,9 @@ export class WorldServiceService {
   }
 
   public findAll(): Observable<World[]> {
-    return this.http.get<World[]>(this.usersUrl, );
+    let temp = "Bearer " + (<string>sessionStorage.getItem('token'));
+    const headers = new HttpHeaders({'Authorization':  temp});
+    return this.http.get<World[]>(this.usersUrl, {headers: headers});
   }
 
   public save(world: World) {

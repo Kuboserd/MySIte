@@ -13,17 +13,15 @@
             </li>
             <li class="list-inline-item">
               <div>
-                <button (submit)="logged()" type="submit"
-                        [hidden]="!logged()"
+                <button
                         [routerLink]="['/login']"
                         class="btn btn-info">D&D Tools</button>
               </div>
-              <div>
-                <button (submit)="logged()" type="submit"
-                        [hidden]="logged()"
+<!--              <div>
+                <button
                         [routerLink]="['/home']"
                         class="btn btn-info">D&D Tools</button>
-              </div>
+              </div>-->
             </li>
           </ul>
         </div>

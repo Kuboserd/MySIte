@@ -17,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RestWorldController {
     private final WorldService worldService;
+    private final UserService userService;
 
     @PostMapping("/home/worlds")
     public World save(World world){
@@ -25,9 +26,9 @@ public class RestWorldController {
     @GetMapping("/home/worlds")
     public List<World> user(HttpServletRequest request) {
         String authToken = request.getHeader("Authorization")
-                .substring("Basic".length()).trim();
-        System.out.println(new String(Base64.getDecoder().decode(authToken)).split(":")[0]);
-        return null;
+                .substring("Bearer ".length()).trim();
+        System.out.println(authToken);
+        return worldService.findAll(userService.findByLogin(new String(Base64.getDecoder().decode(authToken)).split(":")[0])).stream().toList();
     }
 
 }

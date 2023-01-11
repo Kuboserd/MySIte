@@ -12,8 +12,5 @@ export class AppComponent {
     this.title = 'GraczInc';
   }
 
-  logged() {
-    return (sessionStorage.getItem('token') != '');
-  }
 
 }

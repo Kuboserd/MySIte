@@ -2,6 +2,7 @@ package com.example.springdb.model.place;
 
 
 import com.example.springdb.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class World extends Place {
 
     @Getter
     @ManyToOne
+    @JsonIgnoreProperties("worldList")
     @JoinColumn(name = "user_id")
     private User user;
 

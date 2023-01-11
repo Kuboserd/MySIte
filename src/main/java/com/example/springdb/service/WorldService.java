@@ -2,13 +2,13 @@ package com.example.springdb.service;
 
 import com.example.springdb.model.User;
 import com.example.springdb.model.place.World;
-import com.example.springdb.repository.UserRepository;
 import com.example.springdb.repository.WorldRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +21,7 @@ public class WorldService {
 
 
     public List<World> findAll(User user) {
-        return worldRepository.findByUserID(user.getId()).stream().toList();
+        return worldRepository.findByUserID(user.getId());
     }
 
     public World addWorld(World world) {
