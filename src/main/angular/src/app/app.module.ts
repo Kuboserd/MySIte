@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { WorldsComponent } from './home/worlds/worlds.component';
 import { CharactersComponent } from './home/characters/characters.component';
+import { WorldFormComponent } from './home/worlds/world-form/world-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CharactersComponent } from './home/characters/characters.component';
     HomeComponent,
     UserRegistrationComponent,
     WorldsComponent,
-    CharactersComponent
+    CharactersComponent,
+    WorldFormComponent
   ],
   imports: [
     BrowserModule,

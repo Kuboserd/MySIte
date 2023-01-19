@@ -6,7 +6,7 @@ import javax.persistence.MappedSuperclass;
 
 @ToString
 @MappedSuperclass
-public class Place {
+public abstract class Place {
 
     private String name;
 

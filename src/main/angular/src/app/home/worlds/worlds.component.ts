@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {World} from "../worlds/world"
-import {WorldServiceService} from "./world-service.service";
+import {WorldService} from "./world-service.service";
 
 @Component({
   selector: 'app-worlds',
@@ -10,7 +10,7 @@ import {WorldServiceService} from "./world-service.service";
 export class WorldsComponent implements OnInit {
   worlds: World[] = [];
 
-  constructor(private worldService : WorldServiceService) {
+  constructor(private worldService : WorldService) {
   }
 
   ngOnInit() {

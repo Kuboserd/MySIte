@@ -4,6 +4,7 @@ package com.example.springdb.model.place;
 import com.example.springdb.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -14,6 +15,7 @@ public class World extends Place {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Setter
     @Getter
     @ManyToOne
     @JsonIgnoreProperties("worldList")

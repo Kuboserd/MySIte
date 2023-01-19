@@ -6,7 +6,7 @@ import {World} from "./world";
 @Injectable({
   providedIn: 'root'
 })
-export class WorldServiceService {
+export class WorldService {
 
   private usersUrl: string;
 
@@ -21,7 +21,9 @@ export class WorldServiceService {
   }
 
   public save(world: World) {
-    return this.http.post<World>(this.usersUrl, world);
+    let temp = "Bearer " + (<string>sessionStorage.getItem('token'));
+    const headers = new HttpHeaders({'Authorization':  temp});
+    return this.http.post<World>(this.usersUrl, world, {headers: headers});
   }
 
 }

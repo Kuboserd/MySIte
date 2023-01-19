@@ -22,7 +22,7 @@ public class Hero {
     @JoinColumn(name = "user_id")
     private User user;
 
-    float goldCoins;
+    private float goldCoins;
 
     @JsonIgnoreProperties("hero")
     @OneToOne(mappedBy = "hero")
