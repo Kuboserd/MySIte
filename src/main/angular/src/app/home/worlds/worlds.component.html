@@ -4,14 +4,15 @@
   </div>
 </div>
 
-<div class="content">
-  <div class="card-container">
-    <div class="card-body">
-      <a class="docs-card" *ngFor="let world of worlds">
-        <section>{{world.name}}</section>
-        <p>{{world.description}}</p>
-        <p class="card-footer"> Enter {{world.name}}</p>
-      </a>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let world of worlds">
+    <div class="card h-100"  >
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVNVcCudb60g_a9gVfrGiDohlyrLpPvFdybllzMldNsw&s" class="card-img-top" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">{{world.name}}</h5>
+        <p class="card-text">{{world.description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
     </div>
   </div>
 </div>
