@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {World} from "../worlds/world"
-import {WorldService} from "./world-service.service";
+import {World} from "../world"
+import {WorldService} from "../world-service/world-service.service";
 
 @Component({
   selector: 'app-worlds',

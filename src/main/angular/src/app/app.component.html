@@ -1,3 +1,33 @@
+<div class="container-fluid">
+  <div class="row bg-dark">
+    <div class="col-sm-3 pt-2">
+      <a class="display-5 text-decoration-none text-white " routerLink="/**">{{ title }}</a>
+    </div>
+    <div class="col-sm-9 text-center">
+      <ul class="text-end list-inline pt-1 m-4">
+        <li class="list-inline-item">
+          <a routerLink="/users" class="btn btn-info">List Users</a>
+        </li>
+        <li class="list-inline-item">
+          <a routerLink="/adduser" class="btn btn-info">Add User</a>
+        </li>
+        <li class="list-inline-item">
+          <a routerLink="/login" class="btn btn-info"
+             [hidden]="isLogged()"
+          >Login</a>
+          <a routerLink="/home" class="btn btn-info"
+             [hidden]="!isLogged()"
+          >Go to your profile</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<!--
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -17,11 +47,11 @@
                         [routerLink]="['/login']"
                         class="btn btn-info">D&D Tools</button>
               </div>
-<!--              <div>
+&lt;!&ndash;              <div>
                 <button
                         [routerLink]="['/home']"
                         class="btn btn-info">D&D Tools</button>
-              </div>-->
+              </div>&ndash;&gt;
             </li>
           </ul>
         </div>
@@ -30,3 +60,4 @@
     </div>
   </div>
 </div>
+-->

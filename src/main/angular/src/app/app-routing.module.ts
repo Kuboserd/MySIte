@@ -5,7 +5,7 @@ import {UserFormComponent} from './user-form/user-form.component';
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {HomeComponent} from "./home/home.component";
 import {UserRegistrationComponent} from "./user-registration/user-registration.component";
-import {WorldsComponent} from "./home/worlds/worlds.component";
+import {WorldsComponent} from "./home/worlds/world-list/worlds.component";
 import {WorldFormComponent} from "./home/worlds/world-form/world-form.component";
 
 const routes: Routes = [

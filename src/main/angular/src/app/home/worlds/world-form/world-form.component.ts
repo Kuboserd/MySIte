@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {World} from "../world";
-import {WorldService} from "../world-service.service";
+import {WorldService} from "../world-service/world-service.service";
 
 @Component({
   selector: 'app-world-form',

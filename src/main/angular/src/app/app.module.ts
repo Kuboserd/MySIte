@@ -10,9 +10,10 @@ import { UserService } from './user-service/user-service.service';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { WorldsComponent } from './home/worlds/worlds.component';
+import { WorldsComponent } from './home/worlds/world-list/worlds.component';
 import { CharactersComponent } from './home/characters/characters.component';
 import { WorldFormComponent } from './home/worlds/world-form/world-form.component';
+import { SelectedWorldComponent } from './home/worlds/world-selected/selected-world.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WorldFormComponent } from './home/worlds/world-form/world-form.componen
     UserRegistrationComponent,
     WorldsComponent,
     CharactersComponent,
-    WorldFormComponent
+    WorldFormComponent,
+    SelectedWorldComponent
   ],
   imports: [
     BrowserModule,

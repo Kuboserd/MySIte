@@ -1,1 +1,18 @@
-<p>characters works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <a routerLink="/addworld" class="btn btn-info">Create a new world</a>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let hero of heroes">
+    <div class="card h-100"  >
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVNVcCudb60g_a9gVfrGiDohlyrLpPvFdybllzMldNsw&s" class="card-img-top" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">{{hero.name}}</h5>
+        <p class="card-text">{{hero.description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
