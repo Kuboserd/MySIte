@@ -12,11 +12,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
 @ToString
+@Getter
 public class User {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {World} from "../worlds/world";
+import {Hero} from "./hero";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CharacterService {
+export class HeroService {
 
   private usersUrl: string;
 
@@ -14,15 +14,14 @@ export class CharacterService {
     this.usersUrl = 'http://localhost:8080/home/heroes';
   }
 
-  public findAll(): Observable<World[]> {
+  public findAll(): Observable<Hero[]> {
     let temp = "Bearer " + (<string>sessionStorage.getItem('token'));
     const headers = new HttpHeaders({'Authorization':  temp});
-    return this.http.get<World[]>(this.usersUrl, {headers: headers});
+    return this.http.get<Hero[]>(this.usersUrl, {headers: headers});
   }
-
-  public save(world: World) {
+  public save(hero: Hero) {
     let temp = "Bearer " + (<string>sessionStorage.getItem('token'));
     const headers = new HttpHeaders({'Authorization':  temp});
-    return this.http.post<World>(this.usersUrl, world, {headers: headers});
+    return this.http.post<Hero>(this.usersUrl, hero, {headers: headers});
   }
 }

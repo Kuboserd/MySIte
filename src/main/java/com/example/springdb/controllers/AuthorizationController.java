@@ -21,4 +21,5 @@ public class AuthorizationController {
         log.info(authorized ? "User authorized with token " + authToken : "User was not authorized with token " + authToken);
         return authorized ? authToken : null;
     }
+
 }

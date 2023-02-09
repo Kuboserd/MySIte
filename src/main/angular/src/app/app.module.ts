@@ -11,7 +11,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { WorldsComponent } from './home/worlds/world-list/worlds.component';
-import { CharactersComponent } from './home/characters/characters.component';
+import { HeroesComponent } from './home/heroes/heroes.component';
 import { WorldFormComponent } from './home/worlds/world-form/world-form.component';
 import { SelectedWorldComponent } from './home/worlds/world-selected/selected-world.component';
 
@@ -24,7 +24,7 @@ import { SelectedWorldComponent } from './home/worlds/world-selected/selected-wo
     HomeComponent,
     UserRegistrationComponent,
     WorldsComponent,
-    CharactersComponent,
+    HeroesComponent,
     WorldFormComponent,
     SelectedWorldComponent
   ],

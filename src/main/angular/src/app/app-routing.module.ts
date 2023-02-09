@@ -7,6 +7,7 @@ import {HomeComponent} from "./home/home.component";
 import {UserRegistrationComponent} from "./user-registration/user-registration.component";
 import {WorldsComponent} from "./home/worlds/world-list/worlds.component";
 import {WorldFormComponent} from "./home/worlds/world-form/world-form.component";
+import {HeroesComponent} from "./home/heroes/heroes.component";
 
 const routes: Routes = [
   {path: 'users', component: UserListComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'worlds', component: WorldsComponent},
   {path: 'addworld', component: WorldFormComponent},
   {path: 'registration', component: UserRegistrationComponent},
+  {path: 'heroes', component: HeroesComponent},
   {path: '**', redirectTo: ''}
 ];
 export const routing = RouterModule.forRoot(routes);
