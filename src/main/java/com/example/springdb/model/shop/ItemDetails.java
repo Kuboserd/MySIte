@@ -6,17 +6,19 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class ShopQuantity {
+public class ItemDetails {
     @Id
     private long id;
 
     private int quantity;
 
+    private double price;
+
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToMany(mappedBy = "shopQuantityList")
-    private List<ShopStock> shopStockList;
+    @ManyToMany(mappedBy = "item_details_list")
+    private List<ShopStock> shop_stock_details;
 }
 

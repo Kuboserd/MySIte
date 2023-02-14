@@ -10,6 +10,7 @@ public class ShopStock {
     private long id;
 
     @OneToOne(mappedBy = "shopStock")
+    @JoinColumn(name = "shop_id")
     private Shop shop;
 
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -18,5 +19,5 @@ public class ShopStock {
             joinColumns = {@JoinColumn(name = "item_id")},
             inverseJoinColumns = {@JoinColumn(name = "stock_id")}
     )
-    private List<ShopQuantity> shopQuantityList;
+    private List<ItemDetails> item_details_list;
 }

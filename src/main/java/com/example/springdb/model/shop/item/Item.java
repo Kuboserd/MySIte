@@ -1,6 +1,6 @@
 package com.example.springdb.model.shop.item;
 
-import com.example.springdb.model.shop.ShopQuantity;
+import com.example.springdb.model.shop.ItemDetails;
 import com.example.springdb.model.shop.order.OrderQuantity;
 
 import javax.persistence.*;
@@ -35,7 +35,7 @@ public class Item {
     private List<OrderQuantity> orderQuantityList;
 
     @OneToMany(mappedBy = "item")
-    private List<ShopQuantity> shopQuantityList;
+    private List<ItemDetails> itemDetailsList;
 
     private String attributes;
 

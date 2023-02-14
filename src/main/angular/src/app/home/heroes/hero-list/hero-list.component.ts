@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {Hero} from "./hero";
-import {HeroService} from "./hero.service";
+import {Hero} from "../hero-model/hero";
+import {HeroService} from "../hero-service/hero.service";
 
 @Component({
   selector: 'app-characters',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss']
+  templateUrl: './hero-list.component.html',
+  styleUrls: ['./hero-list.component.scss']
 })
-export class HeroesComponent {
+export class HeroListComponent {
   heroes: Hero[] = [];
 
   constructor(private heroService : HeroService) {

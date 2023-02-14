@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {World} from "../world";
+import {World} from "../world-model/world";
 import {WorldService} from "../world-service/world-service.service";
 
 @Component({

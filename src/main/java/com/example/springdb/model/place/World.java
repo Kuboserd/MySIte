@@ -7,9 +7,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class World extends Place {
+public class World extends Space {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +22,10 @@ public class World extends Place {
     @JsonIgnoreProperties("worldList")
     @JoinColumn(name = "user_id")
     private User user;
+
+    @JsonIgnoreProperties("world")
+    @OneToMany(mappedBy = "world")
+    private List<Place> placeList;
 
     public World(){}
 }

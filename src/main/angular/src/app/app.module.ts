@@ -10,10 +10,12 @@ import { UserService } from './user-service/user-service.service';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { WorldsComponent } from './home/worlds/world-list/worlds.component';
-import { HeroesComponent } from './home/heroes/heroes.component';
+import { WorldList } from './home/worlds/world-list/world-list.component';
+import { HeroListComponent } from './home/heroes/hero-list/hero-list.component';
 import { WorldFormComponent } from './home/worlds/world-form/world-form.component';
-import { SelectedWorldComponent } from './home/worlds/world-selected/selected-world.component';
+import { WorldSelectedComponent } from './home/worlds/world-selected/world-selected.component';
+import { ShopPageComponent } from './home/shops/shop-page/shop-page.component';
+import { ShopListComponent } from './home/shops/shop-list/shop-list.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { SelectedWorldComponent } from './home/worlds/world-selected/selected-wo
     UserLoginComponent,
     HomeComponent,
     UserRegistrationComponent,
-    WorldsComponent,
-    HeroesComponent,
+    WorldList,
+    HeroListComponent,
     WorldFormComponent,
-    SelectedWorldComponent
+    WorldSelectedComponent,
+    ShopPageComponent,
+    ShopListComponent
   ],
   imports: [
     BrowserModule,

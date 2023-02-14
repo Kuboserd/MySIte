@@ -1,6 +1,6 @@
 package com.example.springdb.model.dto;
 
-import com.example.springdb.model.place.Place;
+import com.example.springdb.model.place.Space;
 
 public class WorldDTO {
 
@@ -8,8 +8,8 @@ public class WorldDTO {
 
     private String description;
 
-    WorldDTO(Place place) {
-        this.name = place.getName();
-        this.name = place.getDescription();
+    WorldDTO(Space space) {
+        this.name = space.getName();
+        this.name = space.getDescription();
     }
 }

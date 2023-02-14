@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroesComponent } from './heroes.component';
+import { WorldSelectedComponent } from './world-selected.component';
 
-describe('CharactersComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
+describe('SelectedWorldComponent', () => {
+  let component: WorldSelectedComponent;
+  let fixture: ComponentFixture<WorldSelectedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeroesComponent ]
+      declarations: [ WorldSelectedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeroesComponent);
+    fixture = TestBed.createComponent(WorldSelectedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

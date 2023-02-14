@@ -1,19 +1,26 @@
 package com.example.springdb.model.place;
 
-import lombok.Getter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@ToString
-@Getter
-@MappedSuperclass
-public abstract class Place {
+@Entity
+public class Place extends Space{
 
-    private String name;
+    @Id
+    private Long id;
 
-    private String description;
+    private PLACE_TYPE type;
 
-    public Place(){}
+    @JsonIgnoreProperties("placeList")
+    @JoinColumn(name = "world_id")
+    @ManyToOne
+    private World world;
 
+    @ManyToOne
+    @JoinColumn(name = "parent_place")
+    private Place place;
 }
