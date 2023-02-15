@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ShopModel} from "../shop-model/shop-model";
 import {ShopService} from "../shop-service/shop.service";
+import {ItemModel} from "../shop-model/item-model";
 
 @Component({
   selector: 'app-shop-list',
@@ -9,6 +10,7 @@ import {ShopService} from "../shop-service/shop.service";
 })
 export class ShopListComponent {
   shops: ShopModel[] = [];
+  items: ItemModel[] =[];
 
   constructor(private shopService: ShopService) {
   }

@@ -2,15 +2,18 @@ package com.example.springdb.model.shop.item;
 
 import com.example.springdb.model.shop.ItemDetails;
 import com.example.springdb.model.shop.order.OrderQuantity;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
 
     private String name;
 

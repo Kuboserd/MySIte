@@ -3,17 +3,16 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Login</th>
-        <th scope="col">Email</th>
-        <th scope="col">Password</th>
-        <th scope="col">Role</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Stock</th>
       </tr>
       </thead>
-      <tbody>
-      <tr *ngFor="let shop of shops">
+      <tbody *ngFor="let shop of shops">
+      <tr *ngFor="let item of shop.shopStock.item_details_list">
         <td>{{ shop.name }}</td>
         <td>{{ shop.description }}</td>
-        <td>{{ shop.shopStock }}</td>
+        <td>{{item}}</td>
       </tr>
       </tbody>
     </table>

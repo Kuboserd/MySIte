@@ -5,3 +5,4 @@ export class ShopModel {
   description: string | undefined
   shopStock: StockModel | undefined
 }
+
