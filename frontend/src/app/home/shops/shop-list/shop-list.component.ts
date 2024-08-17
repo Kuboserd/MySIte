@@ -10,7 +10,7 @@ import {ItemModel} from "../shop-model/item-model";
 })
 export class ShopListComponent {
   shops: ShopModel[] = [];
-  items: ItemModel[] =[];
+  items: ItemModel[] = [];
 
   constructor(private shopService: ShopService) {
   }

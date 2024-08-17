@@ -9,10 +9,10 @@
       </tr>
       </thead>
       <tbody *ngFor="let shop of shops">
-      <tr *ngFor="let item of shop.shopStock.item_details_list">
+      <tr *ngFor="let item of shop.shopStock?.item_details_list">
         <td>{{ shop.name }}</td>
         <td>{{ shop.description }}</td>
-        <td>{{item}}</td>
+        <td>{{ item }}</td>
       </tr>
       </tbody>
     </table>
