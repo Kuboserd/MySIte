@@ -21,7 +21,7 @@ public class ItemDetails {
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToMany(mappedBy = "item_details_list")
-    private List<ShopStock> shop_stock_details;
+    @ManyToMany(mappedBy = "itemList")
+    private List<Shop> shopList;
 }
 

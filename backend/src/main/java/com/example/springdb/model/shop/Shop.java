@@ -1,6 +1,7 @@
 package com.example.springdb.model.shop;
 
 
+import com.example.springdb.model.shop.item.Item;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -20,13 +21,17 @@ public class Shop {
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "shop_tags",
-            joinColumns = { @JoinColumn(name = "tag_name") },
-            inverseJoinColumns = { @JoinColumn(name = "shop_id") }
+            joinColumns = {@JoinColumn(name = "tag_name")},
+            inverseJoinColumns = {@JoinColumn(name = "shop_id")}
     )
     private List<ShopTag> shopTagList;
 
-    @Getter
-    @OneToOne
-    @JoinColumn(name = "stock_id")
-    private ShopStock shopStock;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "shop_stock",
+            joinColumns = {@JoinColumn(name = "item_id")},
+            inverseJoinColumns = {@JoinColumn(name = "shop_id")}
+    )
+    private List<Item> itemList;
 }
