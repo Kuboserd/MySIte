@@ -14,7 +14,6 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
     private String name;
 
     @Enumerated(EnumType.STRING)

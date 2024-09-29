@@ -5,15 +5,14 @@
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
-        <th scope="col">Stock</th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody *ngFor="let shop of shops">
-      <tr *ngFor="let item of shop.shopStock?.item_details_list">
-        <td>{{ shop.name }}</td>
-        <td>{{ shop.description }}</td>
-        <td>{{ item }}</td>
-      </tr>
+      <td>{{ shop.name }}</td>
+      <td>{{ shop.description }}</td>
+      <td><a class="btn btn-info" routerLink="/users">visit</a></td>
+      <!--      </tr>-->
       </tbody>
     </table>
   </div>

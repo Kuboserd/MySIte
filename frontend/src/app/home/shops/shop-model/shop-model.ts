@@ -1,8 +1,9 @@
-import {StockModel} from "./stock-model";
+import {ItemModel} from "./item-model";
 
 export class ShopModel {
-  name: string |undefined
+  id: number | undefined
+  name: string | undefined
   description: string | undefined
-  shopStock: StockModel | undefined
+  item: ItemModel | undefined
 }
 

@@ -1,5 +1,4 @@
-import {ItemDetails} from "./item-details";
-
 export class StockModel {
-  item_details_list: ItemDetails[] |undefined
+  item_id: number | undefined
+  shop_id: number | undefined
 }

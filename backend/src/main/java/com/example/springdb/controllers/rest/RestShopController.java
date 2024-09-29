@@ -37,17 +37,13 @@ public class RestShopController {
 
     @GetMapping("/home/shops")
     public List<Shop> find(HttpServletRequest request) {
-        return shopService.findall();
-    }
-/*    @GetMapping("/home/shops")
-    public List<Shop> find(HttpServletRequest request) {
         String authToken = authorizationController.isAuthorized(request);
         if (authToken != null) {
-            return shopService.findAll(userService.findByLogin(new String(Base64.getDecoder().decode(authToken)).split(":")[0])).stream().toList();
+            return shopService.findAll().stream().toList();
         } else {
             //TODO: dodac wypisywanie w konsoli
         }
         return null;
-    }*/
+    }
 
 }
